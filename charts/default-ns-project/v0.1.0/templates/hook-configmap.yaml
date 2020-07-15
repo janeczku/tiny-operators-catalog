@@ -1,0 +1,8 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: operator-default-ns-project
+data:
+  hook.sh: |+
+{{ tpl (.Files.Get "hooks/default-ns-project.sh") . | indent 4 }}

@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: operator-default-ns-project
+  labels:
+    app: operator-default-ns-project
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: operator-default-ns-project
+  template:
+    metadata:
+      labels:
+        app: operator-default-ns-project
+      annotations:
+        checksum/hook: {{ .Files.Get "hooks/default-ns-project.sh" | sha256sum }}
+    spec:
+      containers:
+      - name: shell-operator
+        image: "flant/shell-operator:latest"
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: shell-hooks
+          mountPath: /hooks/
+      serviceAccountName: sa-operator-default-ns-project
+      volumes:
+      - name: shell-hooks
+        configMap:
+          name: operator-default-ns-project
+          defaultMode: 0777

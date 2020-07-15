@@ -1,0 +1,11 @@
+questions:
+- variable: defaultProjectId
+  default: ""
+  description: "Specify the ID of the project to which namespaces created using the Kubernetes API will automatically be assigned. Must be in the form `clusterId:projectId`"
+  label: New Namespace Default Project
+  type: string
+- variable: debugLog
+  default: "false"
+  description: "Enable verbose logging for the operator hook"
+  type: boolean
+  label: Debug Logging
