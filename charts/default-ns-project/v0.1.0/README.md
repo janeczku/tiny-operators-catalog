@@ -5,12 +5,6 @@ This charts deploys an instance of [shell-operator](https://github.com/flant/she
 ### How it works
 
 1. Deploy the Helm app providing the ID of the project to which new namespaces should be assigned, e.g. "c-x4czm:p-5g4m2".
-
-2. Create a new namespace with kubectl:
-
-```
-kubectl create ns foo
-```
-
+2. Create a new namespace with kubectl, e.g. `kubectl create ns foo`
 3. Check logs of the operator pod to see how the hook was fired.
 4. Verify that the new namespace has been automatically assigned to the default project
