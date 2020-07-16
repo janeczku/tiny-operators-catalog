@@ -2,3 +2,4 @@ apiVersion: v1
 name: "ns-default-project-operator"
 version: v0.1.0
 description: Operator to assign new namespaces to a given default Rancher project
+icon: https://raw.githubusercontent.com/janeczku/tiny-operators-catalog/master/charts/default-ns-project/icon.svg
